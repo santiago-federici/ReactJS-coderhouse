@@ -1,0 +1,30 @@
+:root{
+    --primary-100: rgb(252, 145, 198);
+    --primary-300: #ff75ba;
+    --primary-500: #ff44a2;
+    --primary-700: #f11583;
+    --primary-900: #b4085e;
+
+
+    --color-dark-800: rgb(65, 65, 65);
+
+
+
+
+    --fontFamily-title: ;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    list-style-position: outside;
+    font-family: 'Oswald', sans-serif;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
