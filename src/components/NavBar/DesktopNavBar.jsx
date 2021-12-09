@@ -10,7 +10,6 @@ function DesktopNavBar() {
             <CartWidget />
 
 
-
             <li className="navbar-item"><a className="navbar-item-link" href="#">Home</a></li>
             <li className="navbar-item"><a className="navbar-item-link" href="#">About</a></li>
             <li className="navbar-item"><a className="navbar-item-link" href="#">Products</a></li>

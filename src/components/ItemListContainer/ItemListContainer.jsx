@@ -1,4 +1,5 @@
-import ItemCount from "./ItemCount"
+import React from 'react'
+import ItemList from "./ItemList"
 import "./ItemListContainer.css"
 
 export default function ItemListContainer (){
@@ -6,9 +7,7 @@ export default function ItemListContainer (){
     return (
         <main className="itemListContainer">
 
-            <ItemCount />
-
-            
+            <ItemList />
         </main>
     )
 }

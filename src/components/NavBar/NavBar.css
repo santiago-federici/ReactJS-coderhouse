@@ -17,12 +17,57 @@
 }
 
 .mobile-navbar{
-    display: none;
+    display: flex;
+    flex-flow: column nowrap;
+    background: var(--primary-500);
+    width: 100vw;
+    height: 100vh;
+    gap: 1.7rem;
+    position: fixed;
+    top: -10000px;
+    left: 0;
+    z-index: 99999;
+    align-items: center;
+    padding: 4rem 1.5rem;
+    transition: top .8s ease;
 }
 
-
 .menu-hamb{
-    font-size: 1.7rem;
+    font-size: 2.2rem;
+    cursor: pointer;
+}
+
+.close-hamb{
+    position: fixed;
+    top: -10000px;
+    right: 15px;
+    z-index: 999999;
+    font-size: 2.8rem;
+    cursor: pointer;
+    transition: top .8s ease;
+}
+
+.social-media-mobile{
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.social-media-mobile i {
+    font-size: 1.5rem;
+}
+
+.fa-facebook:hover{
+    color: rgb(24, 83, 248);
+}
+.fa-instagram:hover{
+    color: rgb(187, 3, 58);
+}
+.fa-twitter:hover{
+    color: rgb(42, 127, 255);
+}
+.fa-whatsapp:hover{
+    color: rgb(0, 177, 15);
 }
 
 .navbar-list{
@@ -40,8 +85,44 @@
     color: #fff;
 }
 
+.navbar-item{
+    list-style-type: none;
+    text-transform: uppercase;
+    position: relative;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.navbar-item-link{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.navbar-item-link:before{
+    content: '';
+    background: #fff;
+    width: 0;
+    height: 2px;
+    left: 50%;
+    bottom: 0;
+    position: absolute;
+    transition: .3s all;
+}
+
+.navbar-item-link:hover,
+.navbar-item-link:focus {
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.navbar-item-link:hover::before,
+.navbar-item-link:focus::before {
+    width: 100%;
+    left: 0;
+}
+
 .shoppingCart{
-    font-size: 2.3rem;
+    font-size: 2.7rem;
     border: .5px solid black;
     border-radius: 50%;
     padding: 5px;
@@ -54,15 +135,6 @@
     transform: scale(1.08);
     background: var(--primary-700);
 }
-
-.navbar-item{
-    list-style-type: none;
-    text-transform: uppercase;
-    position: relative;
-    text-align: center;
-}
-
-
 
 
 
@@ -87,31 +159,11 @@
         right: 3rem;
     }
 
-    .navbar-item-link{
-        text-decoration: none;
-        color: rgb(0, 0, 0);
+    .shoppingCart{
+        font-size: 2.3rem;
     }
-    
-    .navbar-item-link:before{
-        content: '';
-        background: #fff;
-        width: 0;
-        height: 2px;
-        left: 50%;
-        bottom: 0;
-        position: absolute;
-        transition: .3s all;
-    }
-    
-    .navbar-item-link:hover,
-    .navbar-item-link:focus {
-        color: #fff;
-        transform: scale(1.05);
-    }
-    
-    .navbar-item-link:hover::before,
-    .navbar-item-link:focus::before {
-        width: 100%;
-        left: 0;
+
+    .navbar-item{
+        font-size: 1rem;
     }
 }
