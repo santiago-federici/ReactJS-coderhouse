@@ -1,0 +1,10 @@
+[
+    {
+        "name": "PC Gamer",
+        "id": 1,
+        "price": "$60000",
+        "img": "../src/assets/pc/img-pc.jpg",
+        "category": "pc",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam necessitatibus cum consequatur doloremque tempore distinctio esse voluptatibus, laborum unde tenetur."
+    }
+]

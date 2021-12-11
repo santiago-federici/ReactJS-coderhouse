@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import { getFetch } from "./getFetch";
 import Item from "./Item";
-// import Item from "./Item";
 
 
 
@@ -10,21 +8,28 @@ export default function ItemList() {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
 
-        getFetch
-        .then(resp => setProducts(resp))
-        .then(err => console.log(err))
+    const getProducts = () => {
+        fetch("../src/JSON/products.json")
+        .then(resp => resp.json())
+        .then(data => setProducts(data))
         .finally(() => setLoading(false))
+    }
 
+    useEffect(() => {
+        setTimeout(() => getProducts(), 2000)
     }, [])
+    
+    
+    
+    
 
 
     return(
         <div className="cards-container">
             
 
-        { loading ? <div className="typewriter-container"><h4 className="typewriter-animation">Loading...</h4></div>
+        { loading ? <div><div className="ring"></div><h2 className="loading-text">Loading...</h2></div>
 
         : 
 
