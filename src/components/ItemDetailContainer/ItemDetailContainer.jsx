@@ -1,38 +1,39 @@
 import { useState, useEffect } from 'react'
 import ItemDetail from './ItemDetail'
+import { useParams } from 'react-router-dom'
 import './ItemDetailContainer.css'
 
 export default function ItemDetailContainer() {
 
-    const [product, setProduct] = useState([])
+    const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
-
-    const oneProduct = () => {
-        fetch("../src/JSON/oneProduct.json")
-        .then(resp => resp.json())
-        .then(data => setProduct(data))
-        .finally(() => setLoading(false))
-    }
+    const {idDetail} = useParams()
 
 
+
+    
+    
     useEffect(() => {
-        setTimeout(() => oneProduct(), 2000)
-    }, [])
+        
+        const getProducts = () => {
+            fetch("../src/JSON/products.json")
+            .then(resp => resp.json())
+            .then(data => setProducts(data.find(prod => prod.id === parseInt(idDetail))))
+            .finally(() => setLoading(false))
+        }
+        getProducts()
+        
+    }, [idDetail])
 
 
 
 
     return (
 
-        loading ? <></>
-        
+        loading ? <></> 
+
         :
 
-        product.map( prod =>  <ItemDetail
-                                id={prod.id}
-                                name={prod.name}
-                                description={prod.description}
-                                price={prod.price}
-                                img={prod.img}/> )
+        <ItemDetail item={products}/>
     )
 }

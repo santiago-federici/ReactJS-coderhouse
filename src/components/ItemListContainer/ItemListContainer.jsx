@@ -1,14 +1,18 @@
 import React from 'react'
+import Categories from "./Categories";
 import ItemList from "./ItemList"
 import "./ItemListContainer.css"
 
 export default function ItemListContainer (){
 
     return (
-        <main className="itemListContainer">
+        <div className="itemListContainer">
+            <Categories />
+
+
 
             <ItemList />
-        </main>
+        </div>
     )
 }
 

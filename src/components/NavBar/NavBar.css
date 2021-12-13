@@ -93,12 +93,7 @@
     font-size: 1.3rem;
 }
 
-.navbar-item-link{
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-}
-
-.navbar-item-link:before{
+.navbar-item:before{
     content: '';
     background: #fff;
     width: 0;
@@ -109,16 +104,20 @@
     transition: .3s all;
 }
 
-.navbar-item-link:hover,
-.navbar-item-link:focus {
+.navbar-item:hover,
+.navbar-item:focus {
     color: #fff;
     transform: scale(1.05);
 }
 
-.navbar-item-link:hover::before,
-.navbar-item-link:focus::before {
+.navbar-item:hover::before,
+.navbar-item:focus::before {
     width: 100%;
     left: 0;
+}
+
+.active{
+    color: #fff;
 }
 
 .shoppingCart{

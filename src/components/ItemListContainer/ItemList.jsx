@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Item from "./Item";
 
 
@@ -7,18 +8,32 @@ export default function ItemList() {
 
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
+    const {idCategory} = useParams()
 
 
-    const getProducts = () => {
-        fetch("../src/JSON/products.json")
-        .then(resp => resp.json())
-        .then(data => setProducts(data))
-        .finally(() => setLoading(false))
-    }
+
+    
 
     useEffect(() => {
-        setTimeout(() => getProducts(), 2000)
-    }, [])
+
+        if (idCategory){
+            const getProducts = () => {
+                fetch("../src/JSON/products.json")
+                .then(resp => resp.json())
+                .then(data => setProducts(data.filter(prod => prod.category === idCategory)))
+                .finally(() => setLoading(false))
+            }
+            setTimeout(() => getProducts(), 2000)
+        } else{
+            const getProducts = () => {
+                fetch("../src/JSON/products.json")
+                .then(resp => resp.json())
+                .then(data => setProducts(data))
+                .finally(() => setLoading(false))
+            }
+            setTimeout(() => getProducts(), 2000)
+        }
+    }, [idCategory])
     
     
     

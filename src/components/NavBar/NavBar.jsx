@@ -9,7 +9,8 @@ const NavBar = () => {
     
     return(
         <nav className="navbar">
-            <h1 className="logo">LOGO</h1>
+            
+            <Link to="/"><h1 className="logo">LOGO</h1></Link>
             
             <DesktopNavBar />
 

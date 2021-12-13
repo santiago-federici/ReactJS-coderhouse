@@ -1,0 +1,49 @@
+.categories-container{
+    display: flex;
+    gap: 1rem;
+}
+
+.category-button{
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.categories{
+    display: none;
+}
+
+
+.categories-open{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    background: var(--primary-700);
+    border-radius: 1rem;
+    padding: .4rem 1rem;
+    width: max-content;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.categories-open li{
+    cursor: pointer;
+}
+
+.categories-open li:hover,
+.categories-open li:focus{
+    color: #fff;
+}
+
+.arrow-left-container{
+    display: flex;
+    align-items: center;
+}
+
+.arrow-left{
+    display: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+}

@@ -1,5 +1,5 @@
+import { Link, NavLink } from 'react-router-dom'
 import { useEffect } from "react"
-import CartWidget from "./CartWidget"
 import "./NavBar.css"
 
 
@@ -24,7 +24,6 @@ function MobileNavBar() {
         function open(){
             mobNavbar.style.top = "0";
             closeHamb.style.top = "10";
-            console.log("HI");
         }
 
         function close(){
@@ -42,12 +41,11 @@ function MobileNavBar() {
             
 
                 <ul className="mobile-navbar">
-                    <li className="navbar-item"><a className="navbar-item-link" href="#">Home</a></li>
-                    <li className="navbar-item"><a className="navbar-item-link" href="#">About</a></li>
-                    <li className="navbar-item"><a className="navbar-item-link" href="#">Products</a></li>
-                    <li className="navbar-item"><a className="navbar-item-link" href="#">Contact</a></li>
+                    <NavLink activeclassname="active" to="/"><li className="navbar-item">Home</li></NavLink>
+                    <NavLink activeclassname="active" to="/products"><li className="navbar-item">Products</li></NavLink>
+                    <NavLink activeclassname="active" to="/about"><li className="navbar-item">About</li></NavLink>
 
-                    <CartWidget />
+                    <Link to="/cart"><span className="iconify shoppingCart" data-icon="la:shopping-cart"></span></Link>
 
                     <div className="social-media-mobile">
                         <i className="fab fa-facebook"><a href="#"></a></i>

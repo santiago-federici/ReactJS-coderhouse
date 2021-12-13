@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 
 export default function Item({id, name, price, img}) {
 
@@ -8,7 +10,7 @@ export default function Item({id, name, price, img}) {
             <div className="card-info">
                 <h2 className="card-product">{name}</h2>
                 <p>{price}</p>
-                <button className="more-details">More details</button>
+                <Link to={`/detail/${id}`}><button className="more-details">More details</button></Link>
             </div>
         </section>
     )
