@@ -17,19 +17,18 @@
 }
 
 .mobile-navbar{
-    display: flex;
+    display: none;
     flex-flow: column nowrap;
     background: var(--primary-500);
     width: 100vw;
     height: 100vh;
     gap: 1.7rem;
     position: fixed;
-    top: -10000px;
+    top: 0;
     left: 0;
     z-index: 99999;
     align-items: center;
-    padding: 4rem 1.5rem;
-    transition: top .8s ease;
+    padding: 5rem 1.5rem;
 }
 
 .menu-hamb{
@@ -39,12 +38,13 @@
 
 .close-hamb{
     position: fixed;
-    top: -10000px;
+    top: 10;
     right: 15px;
     z-index: 999999;
     font-size: 2.8rem;
     cursor: pointer;
     transition: top .8s ease;
+    display: none;
 }
 
 .social-media-mobile{
@@ -64,7 +64,7 @@
     color: rgb(187, 3, 58);
 }
 .fa-twitter:hover{
-    color: rgb(42, 127, 255);
+    color: rgb(100, 162, 255);
 }
 .fa-whatsapp:hover{
     color: rgb(0, 177, 15);

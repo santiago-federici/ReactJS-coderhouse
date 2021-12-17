@@ -1,6 +1,9 @@
-.categories-container{
+.categories-main{
     display: flex;
     gap: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+    position: relative;
 }
 
 .category-button{
@@ -8,42 +11,106 @@
     align-items: center;
     text-transform: uppercase;
     font-size: 1.3rem;
+    font-weight: 700;
     cursor: pointer;
+    background: var(--primary-300);
+    padding: .3rem 1rem;
+    position: relative;
+    transition: all .5s;
+    width: fit-content;
+}
+
+
+.category-button::before {
+    position: absolute;
+	content: '';
+	transition: all .5s;
+    bottom: -8px;
+    height: 8px;
+    width: 100%;
+    left: 4px;
+    transform: skewX(45deg);
+    background-color: #c51f72;
+}
+
+.category-button::after {
+    position: absolute;
+	content: '';
+	transition: all .5s;
+    right: -8px;
+    height: 100%;
+    width: 8px;
+    bottom: -4px;
+    transform: skewY(45deg);
+    background-color: #911754;
+}
+
+.categories-container {
+    display: none;
+    width: 50%;
 }
 
 .categories{
-    display: none;
-}
-
-
-.categories-open{
     display: flex;
-    justify-content: center;
-    gap: 3rem;
-    background: var(--primary-700);
-    border-radius: 1rem;
-    padding: .4rem 1rem;
-    width: max-content;
+    gap: 4rem;
+    background: var(--primary-300);
+    padding: .4rem 3rem;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
+    position: relative;
+    width: max-content;
 }
 
-.categories-open li{
-    cursor: pointer;
+.categories::before {
+    position: absolute;
+	content: '';
+	transition: all .5s;
+    bottom: -8px;
+    height: 8px;
+    width: 100%;
+    left: 4px;
+    transform: skewX(45deg);
+    background-color: #c51f72;
 }
 
-.categories-open li:hover,
-.categories-open li:focus{
-    color: #fff;
+.categories::after {
+    position: absolute;
+	content: '';
+	transition: all .5s;
+    right: -8px;
+    height: 100%;
+    width: 8px;
+    bottom: -4px;
+    transform: skewY(45deg);
+    background-color: #911754;
 }
 
-.arrow-left-container{
+.appear{
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .arrow-left{
-    display: none;
     font-size: 1.3rem;
     cursor: pointer;
+    margin-left: 1rem;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .categories-main {
+        flex-direction: column;
+    }
+
+    .categories {
+        flex-direction: column;
+        padding: .7rem;
+        text-align: center;
+    }
+
+    .categories-container {
+        justify-content: center;
+        align-items: center;
+    }
 }

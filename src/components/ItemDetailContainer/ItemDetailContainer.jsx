@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import ItemDetail from './ItemDetail'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import './ItemDetailContainer.css'
 
 export default function ItemDetailContainer() {
@@ -25,6 +25,10 @@ export default function ItemDetailContainer() {
         
     }, [idDetail])
 
+    function addNavbar() {
+        document.querySelector(".navbar").style.display = "flex"
+    }
+
 
 
 
@@ -34,6 +38,9 @@ export default function ItemDetailContainer() {
 
         :
 
-        <ItemDetail item={products}/>
+        <div className="detail-main">
+            <Link to="/products"><p className="back-arrow" onClick={addNavbar}><span className="iconify" data-icon="eva:arrow-back-fill"></span></p></Link>
+            <ItemDetail item={products} addNavbar={addNavbar}/>
+        </div>
     )
 }

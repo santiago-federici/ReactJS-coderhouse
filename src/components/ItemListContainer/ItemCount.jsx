@@ -1,30 +1,29 @@
 import { useState } from "react"
 
 
-export default function ItemCount() {
+export default function ItemCount({stock, addToCart}) {
 
 
-    const initial = 1
-    const stock = 5
-    const [count, setCount] = useState(initial);
+    const [count, setCount] = useState(1);
 
     function plus() {
-
-        count < stock ? setCount(prev => prev + 1) : console.log("Se ha alcanzado el máximo de stock de este producto")
+        count !== stock && setCount(count + 1)
     }
 
     function minus() {
-        
-        count > initial ? setCount(prev => prev - 1) : console.log("No es posible comprar menos de una unidad")
-        
+        count !== 1 && setCount( count - 1)
     }
 
 
     return(
-        <div className="count-section">
-            <button className="plus-minus-buttons" onClick={plus}>+</button>
-            <p>{count}</p>
-            <button className="plus-minus-buttons" onClick={minus}>-</button>
+        <div>
+            <div className="count-section">
+                <button className="count-buttons" onClick={minus}>-</button>
+                <h3 className="count-number">{count}</h3>
+                <button className="count-buttons" onClick={plus}>+</button>
+            </div>
+
+            <button className="add-to-cart" onClick={() => addToCart(count)}>Add to cart</button>
         </div>
     )
 }

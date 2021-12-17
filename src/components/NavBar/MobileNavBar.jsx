@@ -11,33 +11,24 @@ import "./NavBar.css"
 
 function MobileNavBar() {
 
-    useEffect(() => {
         
-        const mobNavbar = document.querySelector(".mobile-navbar")
-        const menuHamb = document.querySelector(".menu-hamb")
-        const closeHamb = document.querySelector(".close-hamb")
-
-
-        menuHamb.addEventListener("click", open)
-        closeHamb.addEventListener("click", close)
+    
         
-        function open(){
-            mobNavbar.style.top = "0";
-            closeHamb.style.top = "10";
-        }
+    
+    function open(){
+        document.querySelector(".mobile-navbar").style.display = "flex";
+        document.querySelector(".close-hamb").style.display = "flex";
+    }
 
-        function close(){
-            mobNavbar.style.top = "-10000px";
-            closeHamb.style.top = "-10000px";
-
-        }
-    }, [])
-
+    function close(){
+        document.querySelector(".mobile-navbar").style.display = "none";
+        document.querySelector(".close-hamb").style.display = "none";
+    }
 
     return (
             <>
-                <span className="iconify menu-hamb" data-icon="ion:menu-sharp"></span>
-                <span className="iconify close-hamb" data-icon="eva:close-fill"></span>
+                <p onClick={open} className="menu-hamb"><span className="iconify" data-icon="ion:menu-sharp"></span></p>
+                <p onClick={close} className="close-hamb"><span className="iconify" data-icon="eva:close-fill"></span></p>
             
 
                 <ul className="mobile-navbar">
@@ -57,7 +48,7 @@ function MobileNavBar() {
             </>
     )
 }
-
+ onClick={close}
 export default MobileNavBar
 
 

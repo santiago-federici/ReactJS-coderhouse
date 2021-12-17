@@ -3,6 +3,7 @@
         "name": "PC Gamer",
         "id": 1,
         "price": "$60000",
+        "stock": 5,
         "img": "../src/assets/pc/img-pc.jpg",
         "category": "pc",
         "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis numquam atque neque?"
@@ -11,6 +12,7 @@
         "name": "PC Gamer",
         "id": 2,
         "price": "$60000",
+        "stock": 8,
         "img": "../src/assets/pc/img-pc1.webp",
         "category": "pc",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque dolore natus possimus inventore error. Iure ipsa praesentium aliquid tenetur exercitationem."
@@ -19,6 +21,7 @@
         "name": "Mouse Gamer",
         "id": 3,
         "price": "$10000",
+        "stock": 2,
         "img": "../src/assets/mouse/img-mouse.jpg",
         "category": "mouse",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing."
@@ -27,8 +30,9 @@
         "name": "Keyboard Gamer",
         "id": 4,
         "price": "$25000",
+        "stock": 6,
         "img": "../src/assets/keyboard/img-keyboard.jpg",
         "category": "keyboard",
-        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum sapiente error optio autem nihil. Harum quam quae ad facilis sed quidem velit, praesentium eum, libero eius itaque ea fugit temporibus!"
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum sapiente error optio autem nihil."
     }
     ]

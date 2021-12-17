@@ -1,44 +1,38 @@
 import "./Categories.css"
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 
 
 export default function Categories() {
 
-    const categories = document.querySelector(".categories")
-    const arrowRight = document.querySelector(".arrow-right")
-    const arrowLeft = document.querySelector(".arrow-left")
-    
-
-    function openCategories() {
-
-        categories.classList.add("categories-open")
-        arrowRight.style.display = "none"
-        arrowLeft.style.display = "flex"
+    function open() {
+        document.querySelector('.categories-container').classList.add('appear');
     }
-
-    function closeCategories() {
-        categories.classList.remove("categories-open")
-        arrowLeft.style.display = "none"
-        arrowRight.style.display = "flex"
+        
+    function close() {
+        document.querySelector('.categories-container').classList.remove('appear');
     }
 
 
+
+    //Probar con un useEffect y (useState?)
+    //Probar con intercambiabilidad
 
 
 
 
     return (
-        <div className="categories-container">
-            <p className="category-button" onClick={openCategories}>Category <span className="iconify arrow-right" data-icon="bx:bxs-right-arrow"></span></p>
+        <div className="categories-main">
+            <p className="category-button" onClick={open}>Category <span className="iconify arrow-right" data-icon="bx:bxs-right-arrow"></span></p>
 
-            <div className="arrow-left-container">
+            <div className="categories-container">
                 <ul className="categories">
-                    <Link to="/products/pc"><li>PCs</li></Link>
-                    <Link to="/products/mouse"><li>Mouses</li></Link>
-                    <Link to="/products/keyboard"><li>Keyboards</li></Link>
+                    <Link to="/products"><li>All</li></Link>
+                    <NavLink to="/products/pc" activeclassname="active"><li>PCs</li></NavLink>
+                    <NavLink to="/products/mouse" activeclassname="active"><li>Mouses</li></NavLink>
+                    <NavLink to="/products/keyboard" activeclassname="active"><li>Keyboards</li></NavLink>
                 </ul>
-                <span className="iconify arrow-left" onClick={closeCategories} data-icon="bx:bxs-left-arrow"></span>
+                <p onClick={close} className="arrow-left"><span className="iconify" data-icon="bx:bxs-left-arrow"></span></p>
             </div>
 
         </div>

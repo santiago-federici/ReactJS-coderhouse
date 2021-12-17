@@ -46,9 +46,10 @@ export default function ItemList() {
 
         { loading ? <div><div className="ring"></div><h2 className="loading-text">Loading...</h2></div>
 
-        : 
+        :
 
         products.map( prod =>  <Item id={prod.id} name={prod.name} price={prod.price} img={prod.img}/> )}
+        
 
         </div>
     )
