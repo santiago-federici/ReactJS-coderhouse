@@ -1,16 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
 import ItemCount from '../ItemListContainer/ItemCount'
 
 export default function ItemDetail({item, addNavbar}) {
 
-    const [goToCart, setGoToCart] = useState(false)
+    const [goToCart, setGoToCart] = useState(false);
+    const { addToCart, cartList } = useContext(CartContext);
 
 
-    function addToCart(quantity) {
-        console.log(quantity);
-        setGoToCart(true)
+    function onAdd(quantity) {
+        setGoToCart(true);
+
+        addToCart({...item, quantity:quantity});
     }
+
+    console.log(cartList);
+
+
+
 
 
     return (
@@ -28,7 +36,7 @@ export default function ItemDetail({item, addNavbar}) {
 
                     {goToCart ? <Link to="/cart"><button className="add-to-cart" onClick={addNavbar}>Go to cart</button></Link>
                     :
-                    <ItemCount stock={item.stock} addToCart={addToCart}  />
+                    <ItemCount stock={item.stock} onAdd={onAdd}  />
                     }
 
 

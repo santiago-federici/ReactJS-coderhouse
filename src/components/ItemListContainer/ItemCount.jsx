@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-export default function ItemCount({stock, addToCart}) {
+export default function ItemCount({stock, onAdd}) {
 
 
     const [count, setCount] = useState(1);
@@ -23,7 +23,7 @@ export default function ItemCount({stock, addToCart}) {
                 <button className="count-buttons" onClick={plus}>+</button>
             </div>
 
-            <button className="add-to-cart" onClick={() => addToCart(count)}>Add to cart</button>
+            <button className="add-to-cart" onClick={() => onAdd(count)}>Add to cart</button>
         </div>
     )
 }

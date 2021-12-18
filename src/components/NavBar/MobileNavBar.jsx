@@ -48,8 +48,7 @@ function MobileNavBar() {
             </>
     )
 }
- onClick={close}
-export default MobileNavBar
 
+export default MobileNavBar
 
 
