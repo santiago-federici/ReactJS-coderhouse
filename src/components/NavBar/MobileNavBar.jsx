@@ -1,6 +1,6 @@
-import { Link, NavLink } from 'react-router-dom'
-import { useEffect } from "react"
+import { NavLink } from 'react-router-dom'
 import "./NavBar.css"
+import CartWidget from '../CartWidget/CartWidget';
 
 
 
@@ -11,9 +11,6 @@ import "./NavBar.css"
 
 function MobileNavBar() {
 
-        
-    
-        
     
     function open(){
         document.querySelector(".mobile-navbar").style.display = "flex";
@@ -36,7 +33,7 @@ function MobileNavBar() {
                     <NavLink activeclassname="active" to="/products"><li className="navbar-item">Products</li></NavLink>
                     <NavLink activeclassname="active" to="/about"><li className="navbar-item">About</li></NavLink>
 
-                    <Link to="/cart"><span className="iconify shoppingCart" data-icon="la:shopping-cart"></span></Link>
+                    <CartWidget />
 
                     <div className="social-media-mobile">
                         <i className="fab fa-facebook"><a href="#"></a></i>

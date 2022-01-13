@@ -2,7 +2,7 @@
     {
         "name": "PC Gamer",
         "id": 1,
-        "price": "$60000",
+        "price": "60000",
         "stock": 5,
         "img": "../src/assets/pc/img-pc.jpg",
         "category": "pc",
@@ -11,7 +11,7 @@
     {
         "name": "PC Gamer",
         "id": 2,
-        "price": "$60000",
+        "price": "60000",
         "stock": 8,
         "img": "../src/assets/pc/img-pc1.webp",
         "category": "pc",
@@ -20,7 +20,7 @@
     {
         "name": "Mouse Gamer",
         "id": 3,
-        "price": "$10000",
+        "price": "10000",
         "stock": 2,
         "img": "../src/assets/mouse/img-mouse.jpg",
         "category": "mouse",
@@ -29,10 +29,10 @@
     {
         "name": "Keyboard Gamer",
         "id": 4,
-        "price": "$25000",
+        "price": "25000",
         "stock": 6,
         "img": "../src/assets/keyboard/img-keyboard.jpg",
         "category": "keyboard",
         "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum sapiente error optio autem nihil."
     }
-    ]
+]

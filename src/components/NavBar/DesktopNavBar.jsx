@@ -1,4 +1,5 @@
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import CartWidget from '../CartWidget/CartWidget'
 import "./NavBar.css"
 
 
@@ -7,8 +8,7 @@ function DesktopNavBar() {
 
     return(
         <ul className="desktop-navbar">
-            <Link to="/cart"><span className="iconify shoppingCart" data-icon="la:shopping-cart"></span></Link>
-
+            <CartWidget />
 
             <NavLink activeclassname="active" to="/"><li className="navbar-item">Home</li></NavLink>
             <NavLink activeclassname="active" to="/products"><li className="navbar-item">Products</li></NavLink>

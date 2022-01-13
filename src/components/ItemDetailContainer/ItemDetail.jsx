@@ -1,12 +1,12 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 import ItemCount from '../ItemListContainer/ItemCount'
 
 export default function ItemDetail({item, addNavbar}) {
 
     const [goToCart, setGoToCart] = useState(false);
-    const { addToCart, cartList } = useContext(CartContext);
+    const { addToCart, cartList } = useCartContext();
 
 
     function onAdd(quantity) {
@@ -31,7 +31,7 @@ export default function ItemDetail({item, addNavbar}) {
                 <p className="description">{item.description}</p>
 
                 <div className="cart-section">
-                    <span>{item.price}</span>
+                    <span>${item.price}</span>
 
 
                     {goToCart ? <Link to="/cart"><button className="add-to-cart" onClick={addNavbar}>Go to cart</button></Link>

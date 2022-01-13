@@ -11,6 +11,7 @@ export default function ItemDetailContainer() {
 
 
 
+
     
     
     useEffect(() => {
@@ -21,7 +22,7 @@ export default function ItemDetailContainer() {
             .then(data => setProducts(data.find(prod => prod.id === parseInt(idDetail))))
             .finally(() => setLoading(false))
         }
-        getProducts()
+        setTimeout(() => getProducts(), 1000)
         
     }, [idDetail])
 
@@ -34,7 +35,7 @@ export default function ItemDetailContainer() {
 
     return (
 
-        loading ? <></> 
+        loading ? <div className='spinner-container'><div className="spinner"></div></div>
 
         :
 

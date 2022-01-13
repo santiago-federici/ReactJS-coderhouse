@@ -1,0 +1,128 @@
+.cart-main {
+    background: var(--color-dark-800);
+    padding: 2rem;
+    min-height: 100vh;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.prod-cart-container {
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    gap: 2rem;
+}
+
+.prod-cart-items {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 80%;
+    padding: 1.5rem;
+    background: var(--primary-700);
+    position: relative;
+    text-align: center;
+    align-items: center;
+}
+
+.prod-cart-items::before {
+    position: absolute;
+	content: '';
+    bottom: -8px;
+    height: 8px;
+    width: 100%;
+    left: 4px;
+    transform: skewX(45deg);
+    background-color: #a50e5a;
+}
+
+.prod-cart-items::after {
+    position: absolute;
+	content: '';
+    right: -8px;
+    height: 100%;
+    width: 8px;
+    bottom: -4px;
+    transform: skewY(45deg);
+    background-color: #6e093c;
+}
+
+.prod-cart-items h3 {
+    font-weight: 500;
+}
+
+.trash-can {
+    font-size: 1.3rem;
+    cursor: pointer;
+    justify-self: center;
+    background: none;
+    border: none;
+}
+
+.empty-cart-button {
+    margin-top: 4rem;
+    padding: .6rem 2.5rem;
+    font-weight: 900;
+    background: var(--primary-500);
+    border: none;
+    text-transform: uppercase;
+    border: black 1px solid;
+    border-radius: 1.5rem;
+    width: max-content;
+    align-self: center;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px){
+    .price-quantity {
+        display: none;
+    }
+
+    .prod-cart-items {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.nothing-here {
+    margin: 6rem auto;
+    text-transform: uppercase;
+}
+
+.go-to-products {
+    margin: 0 auto;
+    display: flex;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    background: var(--primary-300);
+    padding: .3rem 1rem;
+    position: relative;
+    transition: all .5s;
+    width: fit-content;
+}
+
+
+.go-to-products::before {
+    position: absolute;
+	content: '';
+	transition: all .5s;
+    bottom: -8px;
+    height: 8px;
+    width: 100%;
+    left: 4px;
+    transform: skewX(45deg);
+    background-color: #c51f72;
+}
+
+.go-to-products::after {
+    position: absolute;
+	content: '';
+	transition: all .5s;
+    right: -8px;
+    height: 100%;
+    width: 8px;
+    bottom: -4px;
+    transform: skewY(45deg);
+    background-color: #911754;
+}
