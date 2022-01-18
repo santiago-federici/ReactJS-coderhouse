@@ -15,16 +15,15 @@ export default function ItemDetail({item, addNavbar}) {
         addToCart({...item, quantity:quantity});
     }
 
-    console.log(cartList);
+    // console.log(cartList);
 
 
 
 
 
     return (
-        <div className="detail-container" key={item.id}>
-            <div className="detail-img" style={{ background: `url(${item.img}) no-repeat 50% / cover` }}>
-            </div> 
+            <div className="detail-container" key={item.id}>
+            <div className="detail-img" style={{ background: `url(${item.img}) no-repeat 50% / cover` }}></div> 
 
             <div className="detail-container-info">
                 <h2>{item.name}</h2>
@@ -43,5 +42,6 @@ export default function ItemDetail({item, addNavbar}) {
                 </div>
             </div>
         </div>
+                    
     )
 }

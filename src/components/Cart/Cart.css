@@ -126,3 +126,79 @@
     transform: skewY(45deg);
     background-color: #911754;
 }
+
+.info-form {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 10rem auto;
+    padding: 4rem;
+    border-radius: 1rem;
+    width: max-content;
+    background: var(--color-dark-800);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.486);
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-form p{
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.info-form h3{
+    font-size: 1.6rem;
+}
+
+.info-form input {
+    border: none;
+    padding: 1rem 2.3rem;
+    background: var(--primary-300);
+    font-size: 1rem;
+    border-radius: 1rem;
+    outline: none;
+}
+
+.info-form input::placeholder{
+    color: rgb(51, 51, 51);
+}
+
+.buy-btn {
+    margin: 2rem 0;
+    border: none;
+    display: flex;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    background: var(--primary-300);
+    padding: .3rem 1rem;
+    position: relative;
+    transition: all .5s;
+    width: fit-content;
+}
+
+
+.buy-btn::before {
+    position: absolute;
+	content: '';
+	transition: all .5s;
+    bottom: -8px;
+    height: 8px;
+    width: 100%;
+    left: 4px;
+    transform: skewX(45deg);
+    background-color: #c51f72;
+}
+
+.buy-btn::after {
+    position: absolute;
+	content: '';
+	transition: all .5s;
+    right: -8px;
+    height: 100%;
+    width: 8px;
+    bottom: -4px;
+    transform: skewY(45deg);
+    background-color: #911754;
+}

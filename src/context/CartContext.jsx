@@ -39,8 +39,12 @@ export default function CartContextProvider({children}) {
         }
     }
 
+    function totalPrice() {
+        return cartList.reduce((acum, prod) => acum + (prod.quantity * prod.price), 0)
+    }
+
     return(
-        <CartContext.Provider value={{cartList, addToCart, emptyCart, trash}}>
+        <CartContext.Provider value={{cartList, addToCart, emptyCart, trash, totalPrice}}>
             {children}
         </CartContext.Provider>
     )

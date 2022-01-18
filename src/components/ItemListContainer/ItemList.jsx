@@ -1,6 +1,7 @@
 import { useEffect, useState, memo } from "react";
 import { useParams } from "react-router-dom";
 import Item from "./Item";
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
 
 
 
@@ -13,33 +14,35 @@ const ItemList = memo(() => {
     
 
 
-    
-
     useEffect(() => {
-        
-        if (idCategory){
+
+        const db= getFirestore()
+
+        if(idCategory){
             const getProducts = () => {
-                fetch("../src/JSON/products.json")
-                .then(resp => resp.json())
-                .then(data => setProducts(data.filter(prod => prod.category === idCategory)))
-                .finally(() => setLoading(false))
+                const queryCollection = query(collection(db, 'products'), where('category', '==', idCategory))
+                getDocs(queryCollection)
+                .then(resp => setProducts(resp.docs.map(prod => ({id: prod.id, ...prod.data()}))))
+                .catch(err => console.log(err))
+                .finally(setLoading(false))
             }
             setTimeout(() => getProducts(), 2000)
         } else{
             const getProducts = () => {
-                fetch("../src/JSON/products.json")
-                .then(resp => resp.json())
-                .then(data => setProducts(data))
-                .finally(() => setLoading(false))
+                const queryCollection = collection(db, 'products')
+                getDocs(queryCollection)
+                .then(resp => setProducts( resp.docs.map(prod => ({id: prod.id, ...prod.data()}))))
+                .catch(err => console.log(err))
+                .finally(setLoading(false))
             }
             setTimeout(() => getProducts(), 2000)
         }
-    }, [idCategory])
-    
-    
-    
-    
 
+    }, [idCategory])
+
+
+    console.log(products)
+    
 
     return(
         <div className="cards-container">

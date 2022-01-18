@@ -26,9 +26,16 @@ export default function ItemDetailContainer() {
         
     }, [idDetail])
 
+
+
+
+
+
+
     function addNavbar() {
         document.querySelector(".navbar").style.display = "flex"
     }
+
 
 
 
