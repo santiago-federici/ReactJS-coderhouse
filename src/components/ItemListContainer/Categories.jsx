@@ -14,13 +14,6 @@ export default function Categories() {
     }
 
 
-
-    //Probar con un useEffect y (useState?)
-    //Probar con intercambiabilidad
-
-
-
-
     return (
         <div className="categories-main">
             <p className="category-button" onClick={open}>Category <span className="iconify arrow-right" data-icon="bx:bxs-right-arrow"></span></p>

@@ -9,7 +9,7 @@
     margin-top: 4rem;
     display: flex;
     flex-flow: row wrap;
-    gap: 1rem;
+    gap: 2rem;
     justify-content: center;
     align-items: center;
 }

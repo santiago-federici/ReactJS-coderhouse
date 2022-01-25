@@ -7,8 +7,6 @@ export default function Item({id, name, price, img}) {
         document.querySelector(".navbar").style.display = "none"
     }
 
-
-
     return(
         <section className="card" key={id} style={{ background: `url(${img}) no-repeat 50% / cover` }}>
             <div className="card-info">
@@ -17,5 +15,6 @@ export default function Item({id, name, price, img}) {
                 <Link to={`/detail/${id}`}><button onClick={removeNavbar} className="more-details">More details</button></Link>
             </div>
         </section>
+        
     )
 }

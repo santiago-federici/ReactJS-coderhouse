@@ -93,7 +93,8 @@
 }
 
 .description{
-    background: rgba(128, 128, 128, 0.336);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
     width: fit-content;
     height: fit-content;
     padding: .5rem 1rem;

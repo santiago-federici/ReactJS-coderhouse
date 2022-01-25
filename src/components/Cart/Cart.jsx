@@ -1,26 +1,31 @@
 import './Cart.css'
 import { useCartContext } from "../../context/CartContext"
 import { Link } from 'react-router-dom'
-import { addDoc, collection, documentId, getDocs, getFirestore, query, Timestamp, where, writeBatch } from 'firebase/firestore'
+import { addDoc, collection, getFirestore, Timestamp } from 'firebase/firestore'
 import { useState } from 'react'
 
 export default function Cart() {
 
     const { cartList, emptyCart, trash, totalPrice } = useCartContext()
     const [transactionId, setTransactionId] = useState('')
-    const [infoForm, setInfoForm] = useState({name: '', email: '', phone:''})
+    const [infoForm, setInfoForm] = useState({name: '', email: '', repeatEmail:'', phone:''})
+    const [email, setEmail] = useState(false)
 
-
+    
+    const emailOne = document.querySelector(".email-one")
+    const emailTwo = document.querySelector(".email-two")
+    
     function userInfo(e) {
-        
-        setInfoForm({...infoForm, [e.target.name]: e.target.value})
+        setInfoForm({...infoForm, [e.target.name]: e.target.value}) 
     }
-
-
+    
     const createOrder = (e) => {
         e.preventDefault()
-
-        let order = {}
+        
+        if(emailTwo.value === emailOne.value){
+            setEmail(false)
+            
+            let order = {}
             
             order.buyer = infoForm,
             order.total = totalPrice(),
@@ -30,30 +35,19 @@ export default function Cart() {
                 const id = prod.id;
                 const quantity = prod.quantity;
                 const subtotal = prod.price * prod.quantity;
-    
+                
                 return{name, id, quantity, subtotal}
             })
-        
+            
+            const db = getFirestore()
+            const orderCollection = collection(db, 'orders')
+            
+            addDoc(orderCollection, order)
+            .then(resp => setTransactionId(resp.id))
 
-
-        const db = getFirestore()
-        const orderCollection = collection(db, 'orders')
-
-
-        addDoc(orderCollection, order)
-        .then(resp => setTransactionId(resp.id))
-        .catch(err => console.log(err))
-
-
-
-        // const updateCollection = collection(db, 'products')
-        // const updateStock = query(updateCollection, where(documentId, 'in', cartList.map(prod => prod.id)))
-
-        // const batch = writeBatch(db)
-        // getDocs(updateStock)
-        // .then(resp => resp.docs.forEach(res => batch.update(res.ref, {stock: resp.data().stock - cartList.find(prod => prod.id === resp.id).quantity})))
-
-        // batch.commit()
+        } else {
+            setEmail(true)
+        }
     }
 
 
@@ -77,30 +71,29 @@ export default function Cart() {
                 <button onClick={emptyCart} className="empty-cart-button">Empty cart</button>
 
 
-                
                 <form action="" onSubmit={createOrder} onChange={userInfo} className="info-form">
 
-                    <p>Finish your purchase!</p>
+                    <p className="finish-purchase">Finish your purchase!</p>
 
 
-                    <input type="text" name="name" placeholder="Your Name" value={infoForm.name}/>
-                    <input type="email" name="email" placeholder="email@example.com" value={infoForm.email}/>
-                    <input type="tel" name="phone" placeholder="Phone number" value={infoForm.phone}/>
-
-
+                    <input type="text" name="name" placeholder="Your Name" value={infoForm.name} required/>
+                    <input className="email-one" type="email" name="email" placeholder="email@example.com" value={infoForm.email} required/>
+                    <input className="email-two" type="email" name="repeatEmail" placeholder="repeat your email" value={infoForm.repeatEmail} required/>
+                    {email ? <span className="wrong-email">Check the emails</span> : ''}
+                    <input type="tel" name="phone" placeholder="Phone number" value={infoForm.phone} required/>
 
                     <h3>Total price: ${totalPrice()}</h3>
                     <button className="buy-btn">Buy</button>
 
-                    
 
-                    {(transactionId.length ? <h3>Transaction ID: {transactionId}</h3> : <div></div>)}
+                    {(transactionId.length ? <h3>Transaction ID: <br/>{transactionId}</h3> : <div></div>)}
                     
-
                 </form>
 
             </div>
+
             :
+
             <div className="cart-main">
                 <h2 className="nothing-here">The cart is empty</h2>
                 <Link to="/products" className='go-to-products'>Go to products</Link>

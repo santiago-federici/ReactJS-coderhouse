@@ -3,7 +3,6 @@ import { useState } from "react"
 
 export default function ItemCount({stock, onAdd}) {
 
-
     const [count, setCount] = useState(1);
 
     function plus() {

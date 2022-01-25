@@ -3,14 +3,7 @@ import "./NavBar.css"
 import CartWidget from '../CartWidget/CartWidget';
 
 
-
-
-
-
-
-
 function MobileNavBar() {
-
     
     function open(){
         document.querySelector(".mobile-navbar").style.display = "flex";
@@ -36,10 +29,10 @@ function MobileNavBar() {
                     <CartWidget />
 
                     <div className="social-media-mobile">
-                        <i className="fab fa-facebook"><a href="#"></a></i>
-                        <i className="fab fa-instagram"><a href="#"></a></i>
-                        <i className="fab fa-twitter"><a href="#"></a></i>
-                        <i className="fab fa-whatsapp"><a href="#"></a></i>
+                        <a href="https://m.facebook.com/profile.php?id=4"><i className="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/cbum/?hl=es-la"><i className="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/maritobaracus"><i className="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/5492615162079"><i className="fab fa-whatsapp"></i></a>
                     </div>
                 </ul>
             </>

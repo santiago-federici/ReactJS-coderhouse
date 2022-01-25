@@ -1,0 +1,71 @@
+.about-main {
+    min-height: 100vh;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 1rem;
+    align-items: center;
+}
+
+.about-us {
+    color: #fff;
+    position: relative;
+    font-size: 5rem;
+}
+
+.about-us:hover {
+    animation: us 4s infinite;
+}
+
+@keyframes us {
+    50%{color:var(--primary-300);}
+    100%{transform: rotateY(360deg)}
+}
+
+.about-us::before {
+    content: 'ABOUT US!';
+    position: absolute;
+    color: black;
+    left: -8px;
+    bottom: -5px;
+    z-index: -1;
+}
+
+.about-text {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-top: 3rem;
+    font-size: 1.2rem;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.media-about {
+    margin: 8rem 0;
+    gap: 3.5rem;
+    position:static;
+    bottom: 0;
+}
+
+@media only screen and (max-width: 400px){
+    .about-us {
+        font-size: 4rem;
+    }
+}
+
+.media-about i {
+    font-size: 2rem;
+}
+
+.media-about a:hover i {
+    animation: spin 1.3s;
+}
+
+@keyframes spin {
+    100%{
+        transform: rotate(720deg);
+    }
+    
+}
